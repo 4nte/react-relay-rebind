@@ -4,7 +4,7 @@
 
 
 
-[build-badge]: https://img.shields.io/travis/antegulin/react-relay-rebindy/master.svg
+[build-badge]: https://travis-ci.org/antegulin/react-relay-rebind.svg?branch=master
 [build]: https://travis-ci.org/antegulin/react-relay-rebind
 [discord]: https://img.shields.io/badge/chat-on%20discord-7289da.svg
 [discord-invite]: https://discord.gg/EDwd5wr
