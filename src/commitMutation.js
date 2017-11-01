@@ -13,8 +13,6 @@ const commitMutation = (environment, config, dispatch) => {
         }
         dispatch(response);
       },
-      onError: err => console.error(err),
-
     },
   );
 };
