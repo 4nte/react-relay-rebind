@@ -1,7 +1,7 @@
 import 'jsdom-global/register';
 import chai from 'chai';
 import chaiEnzyme from 'chai-enzyme';
-import { mount, configure, shallow, render } from 'enzyme';
+import { mount, configure, shallow } from 'enzyme';
 import spies from 'chai-spies';
 import React from 'react';
 import Adapter from 'enzyme-adapter-react-16';
@@ -27,7 +27,7 @@ const states = {
 
 const LoginForm = connectComponent(states)( // eslint-disable-line
 class extends React.Component {
-  render() {
+  render() { // eslint-disable-line
     return (
       <div>
         <span>component enhanced with react-relay-local</span>
