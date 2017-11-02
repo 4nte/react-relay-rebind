@@ -1,4 +1,5 @@
-# React Relay Rebind [![Travis][build-badge]][build] [![Chat][discord]]([discord-invite])
+# React Relay Rebind [![Travis][build-badge]][build] ![npm-version] [![Chat][discord]]([discord-invite])
+
 _React relay rebind is a component-scope state management for Relay modern & React._
 
 React-Relay-Rebind is a local state managment for React components which use Relay. Focus of React Relay Rebind is to handle data resolved with Relay mutations and provide it to a component. Component will recieve a state prop for each rebinded mutation. The API declaratively passes down state to components thus simplifying the data flow. The common usecase is non-persistent/local data (e.g UI state) which does not belong and does not deserve to be mixed with persistent data.
@@ -115,7 +116,7 @@ Commits a mutation and dispatches resolved data as props to a component to whom 
 
 
 
-
+[npm-version]: https://img.shields.io/npm/v/react-relay-rebind.svg
 [build-badge]: https://travis-ci.org/antegulin/react-relay-rebind.svg?branch=master
 [build]: https://travis-ci.org/antegulin/react-relay-rebind
 [discord]: https://img.shields.io/badge/chat-on%20discord-7289da.svg
