@@ -1,2 +1,2 @@
 export commitMutation from './commitMutation.js';
-export connectComponent from './connectComponent.js';
+export rebind from './rebind.js';
