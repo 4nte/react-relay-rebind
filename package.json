@@ -1,14 +1,22 @@
 {
   "private": false,
   "name": "react-relay-local",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Component-scope state management for Relay modern & React.",
   "homepage": "",
   "repository": "https://github.com/antegulin/react-relay-rebind",
   "author": "Ante Gulin <theguxi@gmail.com>",
   "contributors": [],
   "license": "MIT",
-  "keywords": ["react", "reactjs", "relay", "relay modern", "local", "state", "mutation"],
+  "keywords": [
+    "react",
+    "reactjs",
+    "relay",
+    "relay modern",
+    "local",
+    "state",
+    "mutation"
+  ],
   "main": "index.js",
   "jsnext:main": "index.es.js",
   "babel": {
@@ -31,8 +39,6 @@
     "react-relay": "^1.4.1"
   },
   "devDependencies": {
-    "babel-runtime": "^6.11.6",
-    "jsdom": "^11.3.0",
     "babel-cli": "^6.16.0",
     "babel-core": "^6.17.0",
     "babel-eslint": "^7.0.0",
@@ -43,6 +49,7 @@
     "babel-preset-react": "^6.24.1",
     "babel-preset-stage-0": "^6.16.0",
     "babel-register": "^6.16.3",
+    "babel-runtime": "^6.11.6",
     "chai": "^4.0.0-canary.1",
     "chai-enzyme": "^1.0.0-beta.0",
     "chai-spies": "git://github.com/chaijs/chai-spies.git#b11aeebf",
@@ -56,6 +63,7 @@
     "graphql": "^0.11.7",
     "graphql-tools": "^2.6.1",
     "istanbul": "^1.1.0-alpha.1",
+    "jsdom": "^11.3.0",
     "jsdom-global": "^3.0.2",
     "mocha": "^4.0.1",
     "react-dom": "^16.0.0",
