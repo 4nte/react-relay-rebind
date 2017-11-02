@@ -131,7 +131,7 @@ Please build locally before submitting a PR.
 - [Ante Gulin](https://github.com/antegulin)
 
 ### Backers
-![ag04logo](http://ag04.com/site/wp-content/uploads/2012/07/ag-novi-logo.gif)
+<!--- ![ag04logo](http://ag04.com/site/wp-content/uploads/2012/07/ag-novi-logo.gif) -->
 
 
 
