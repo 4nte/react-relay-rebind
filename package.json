@@ -1,6 +1,6 @@
 {
   "private": false,
-  "name": "react-relay-local",
+  "name": "react-relay-rebind",
   "version": "0.0.2",
   "description": "Component-scope state management for Relay modern & React.",
   "homepage": "",
@@ -19,6 +19,7 @@
   ],
   "main": "index.js",
   "jsnext:main": "index.es.js",
+  "files": ["dist"],
   "babel": {
     "presets": [
       "latest",
