@@ -39,7 +39,7 @@ promise = promise.then(() => del(['dist/*']));
   })));
 });
 
-// Copy package.json and LICENSE.txt
+// Copy package.json and LICENSE
 promise = promise.then(() => {
   delete pkg.private;
   delete pkg.devDependencies;
@@ -47,7 +47,7 @@ promise = promise.then(() => {
   delete pkg.eslintConfig;
   delete pkg.babel;
   fs.writeFileSync('dist/package.json', JSON.stringify(pkg, null, '  '), 'utf-8');
-  fs.writeFileSync('dist/LICENSE.txt', fs.readFileSync('LICENSE.txt', 'utf-8'), 'utf-8');
+  fs.writeFileSync('dist/LICENSE', fs.readFileSync('LICENSE', 'utf-8'), 'utf-8');
 });
 
 promise.catch(err => console.error(err.stack)); // eslint-disable-line no-console
