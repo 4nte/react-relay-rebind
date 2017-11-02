@@ -1,14 +1,14 @@
 {
-  "private": true,
+  "private": false,
   "name": "react-relay-local",
   "version": "0.0.1",
-  "description": "",
+  "description": "Component-scope state management for Relay modern & React.",
   "homepage": "",
   "repository": "https://github.com/antegulin/react-relay-rebind",
   "author": "Ante Gulin <theguxi@gmail.com>",
   "contributors": [],
   "license": "MIT",
-  "keywords": [],
+  "keywords": ["react", "reactjs", "relay", "relay modern", "local", "state", "mutation"],
   "main": "index.js",
   "jsnext:main": "index.es.js",
   "babel": {
