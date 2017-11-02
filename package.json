@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "react-relay-rebind",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "description": "Component-scope state management for Relay modern & React.",
   "homepage": "",
   "repository": "https://github.com/antegulin/react-relay-rebind",
@@ -38,7 +38,7 @@
     "extends": "airbnb-base"
   },
   "bugs": {
-    "url" : "https://github.com/antegulin/react-relay-rebind/issues"
+    "url": "https://github.com/antegulin/react-relay-rebind/issues"
   },
   "dependencies": {
     "react": "^16.0.0",
