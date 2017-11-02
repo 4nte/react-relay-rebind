@@ -58,7 +58,7 @@ export default loginMutation;
 ```
 Rebind mutations with the component
 ```JSX
-import { commitMutation } from 'react-relay-rebind';
+import { rebind } from 'react-relay-rebind';
 import { loginMutation } from './loginMutation';
 
 class MyComponent extends React.component {
