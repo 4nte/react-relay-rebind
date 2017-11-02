@@ -116,8 +116,6 @@ Commits a mutation and dispatches resolved data as props to a component to whom 
 
 _More detailed documentation forthcoming_
 
-## Goal
-
 ## Contributing
 Contributions are welcomed! It's suggested to create an issue beforehand to shed some light to others on what kind of change you are working on.
 Fork, improve & create a pull request.
