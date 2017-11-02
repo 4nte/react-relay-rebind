@@ -37,6 +37,9 @@
     "parser": "babel-eslint",
     "extends": "airbnb-base"
   },
+  "bugs": {
+    "url" : "https://github.com/antegulin/react-relay-rebind/issues"
+  },
   "dependencies": {
     "react": "^16.0.0",
     "react-relay": "^1.4.1"
