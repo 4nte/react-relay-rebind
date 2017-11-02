@@ -124,8 +124,16 @@ Fork, improve & create a pull request.
 
 #### Development
 Use `yarn run lint` to run a lint
+
 Use `yarn run test:cover` to run tests
-_Please build locally before submitting a PR._
+
+Please build locally before submitting a PR.
+
+### Contributors
+- [Ante Gulin](https://github.com/antegulin)
+
+### Backers
+![ag04logo](http://ag04.com/site/wp-content/uploads/2012/07/ag-novi-logo.gif)
 
 
 
