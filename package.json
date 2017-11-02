@@ -1,7 +1,7 @@
 {
   "private": false,
   "name": "react-relay-rebind",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Component-scope state management for Relay modern & React.",
   "homepage": "",
   "repository": "https://github.com/antegulin/react-relay-rebind",
@@ -19,7 +19,9 @@
   ],
   "main": "index.js",
   "jsnext:main": "index.es.js",
-  "files": ["dist"],
+  "files": [
+    "dist"
+  ],
   "babel": {
     "presets": [
       "latest",
