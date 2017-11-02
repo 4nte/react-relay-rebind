@@ -106,12 +106,12 @@ const states = {
 export default rebind(states)(MyComponent);
 ```
 ## Guide
-#### `rebind(states)(component)`
+#### `rebind(states)(component): Component`
 When rebinding a component you must provide `states` that are to be binded with the `component`.
 ##### `states: Object`
-`Must contain a configuration object `{ mutation: <mutation function>, initialState: <any> }` for each mutation.
+Must contain a configuration object `{ mutation: <mutation function>, initialState: <any> }` for each mutation.
 #### `commitMutation(environment, config, dispatch)`
-Commits a mutation and dispatches resolved data to a component to whom mutation is rebinded to.
+Commits a mutation and dispatches resolved data as props to a component to whom mutation is rebinded to.
 
 
 
