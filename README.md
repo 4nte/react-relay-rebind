@@ -4,7 +4,7 @@ _React relay rebind is a component-scope state management for Relay modern & Rea
 
 React-Relay-Rebind is a local state managment for React components which use Relay. Focus of React Relay Rebind is to handle data resolved with Relay mutations and provide it to a component. Component will recieve a state prop for each rebinded mutation. The API declaratively passes down state to components thus simplifying the data flow. The common usecase is non-persistent/local data (e.g UI state) which does not belong and does not deserve to be mixed with persistent data.
 
-**Warning: Do not use in production!** RRR is highly experimental, please stand by until 1.0.0 is released.
+⚠️ **Warning: Do not use in production!** RRR is highly experimental, please stand by until 1.0.0 is released.
 
 ## Roadmap to production
 - [ ] Automagically provide dispatch to commitMutation
