@@ -67,8 +67,20 @@ class MyComponent extends React.component {
     this.props.mutations.login(this.props.relay, this.state);
   }
 
+  handleFieldChange(fieldName){
+    return (e) => {
+      // Login mutation stateProxy
+      const { login } = this.props;
+
+      this.setState({ [fieldName]: e.target.value() });
+
+      // Set login mutation to initial state
+      this.login.resetState();
+    }
+  }
+
   render(){
-    const { errors } = this.props.login;
+    const { errors } = this.props.login.state;
     const usernameClassname = errors.username ? 'has-error' : '';
     const passwordClassname = errors.password ? 'has-error' : '';
 
@@ -78,14 +90,14 @@ class MyComponent extends React.component {
           className={usernameClassname}
           name="username"
           type="text"
-          onChange={ e => this.setState({ username: e.target.value() }) }
+          onChange={this.handleFieldChange('username')}
           value={username} />
         <br/>
         <input
           className={passwordClassname}
           name="password"
           type="password"
-          onChange={ e => this.setState({ password: e.target.value() }) }
+          onChange={this.handleFieldChange('password')}
           value={password} />
         <br/>
         <input type="submit" onClick={this.handleSubmit} value="Login"/>
@@ -93,7 +105,7 @@ class MyComponent extends React.component {
   }
 }
 
-const states = {
+const mutations = {
   login: {
     mutation: LoginMutation,
     initialState: {
@@ -104,17 +116,48 @@ const states = {
     },
   },
 };
-export default rebind(states)(MyComponent);
+export default rebind(mutations)(MyComponent);
 ```
 ## API Documentation
-#### `rebind(states)(component): Component`
-When rebinding a component you must provide `states` that are to be binded with the `component`.
-##### `states: Object`
-Must contain a configuration object `{ mutation: <mutation function>, initialState: <any> }` for each mutation.
-#### `commitMutation(environment, config, dispatch)`
-Commits a mutation and dispatches resolved data as props to a component to whom mutation is rebinded to.
 
-_More detailed documentation forthcoming_
+### Rebind
+```javascript
+rebind(mutations: mutationsConfiguration)(component: Component): Component`
+```
+Binds mutations with a component. Composed component will recieve a [state proxy](#stateProxy) as a prop for each mutation specified in the [mutations configuration](#mutationsConfiguration).
+
+## Mutations configuration
+```javascript
+    {
+      mutationName : {
+        mutation: function,
+        initialState: <any>,
+      }
+    }
+```
+Mutations configuration object contains a property for each mutation binding. Property name be the same as the graphql's mutation name.
+* **mutationName**: A graphql mutation name.
+* **mutation function**: A function called by the [mutation handler](#mutation-handler) in a component. Mutation function will be provided with a [dispatch function](dispatch) as the last argument. Mutation function could be a [commitMutation](commit-mutation) or a function that calls `commitMutation` but then you must provide a `dispatch` to the `commitMutation` as the last argument.
+* **initialState**: default mutation state.
+
+## Commit mutation
+```javascript
+commitMutation(environment, config, dispatch)
+```
+Commits a mutation and dispatches resolved data to a binded component. This function is almost identical to the Relays `commitMutation` except that it expectes a `dispatch` function in the third argument.
+
+## State proxy
+```javascript
+StateProxy {
+  state,
+  setState(state),
+  resetState()
+}
+```
+* **state**: mutation state
+* **setState()**: sets mutation state
+* **resetState()**: sets mutation state to the initialState
+
 
 ## Contributing
 Contributions are welcomed! It's suggested to create an issue beforehand to shed some light to others on what kind of change you are working on.
