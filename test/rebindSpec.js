@@ -68,8 +68,8 @@ describe('rebind', () => {
   });
 
   it('should pass down correct initial state', () => {
-    const loginState = mount(<LoginForm {...testprops}/>).children().props().login;
-    expect(loginState).to.deep.equal(states.login.initialState);
+    const loginProxy = mount(<LoginForm {...testprops}/>).children().props().login;
+    expect(loginProxy.state).to.deep.equal(states.login.initialState);
   });
 
 });
