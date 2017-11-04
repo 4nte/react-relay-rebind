@@ -1,51 +1,65 @@
 import React from 'react';
+import stateProxyFactory from './stateProxy';
 
 const connectComponent = (mutations) => (Component) => { // eslint-disable-line
+  const mutationKeys = Object.keys(mutations); // Array of all mutation keys (names)
+
   return class extends React.Component {
     constructor(props) {
       super(props);
 
       this.state = {};
-      // this.handleMutationResponseData = this.handleMutationResponseData.bind(this);
 
       const composeMutation = (mutationKey, mutationFunction) => (...params) => {
         mutationFunction(...params, this.handleMutationResponseData(mutationKey));
       };
 
-      // Array of all mutation keys (names)
-      const mutationKeys = Object.keys(mutations);
-
       // Compose all mutations
       this.composedMutations = {};
       this.mutationStateProxies = {};
 
-      for (let i = 0; i < mutationKeys.length; i += 1) {
-        const key = mutationKeys[i];
-        const mutationFunction = mutations[key].mutation;
-        const initialState = mutations[key].initialState;
+      const StateProxy = stateProxyFactory(this);
+      mutationKeys.forEach((mutationKey) => {
+        const mutationFunction = mutations[mutationKey].mutation;
+        const initialState = mutations[mutationKey].initialState;
 
         // Compose the mutation
-        this.composedMutations[key] = composeMutation(key, mutationFunction);
+        this.composedMutations[mutationKey] = composeMutation(mutationKey, mutationFunction);
 
         // Declare mutation state
-        this.state[key] = initialState;
+        this.state[mutationKey] = initialState;
 
-        // Construct the mutation state proxy
-        const setState = state => this.setState({ [key]: state });
-        const state = this.state[key];
-        this.mutationStateProxies[key] = { setState, state };
-      }
+        // Create a mutation state proxy
+        this.mutationStateProxies[mutationKey] = new StateProxy(mutationKey, initialState);
+      });
+    }
+
+    setMutationState(mutationKey, data) {
+      // Update component state
+      this.setState({ [mutationKey]: data });
+
+      // Update proxy state
+      this.mutationStateProxies[mutationKey].state = data;
     }
 
     handleMutationResponseData(mutationKey) {
-      return (data) => {
-        this.setState({ [mutationKey]: data[mutationKey] });
+      return (response) => {
+        const data = response[mutationKey];
+        this.setMutationState(mutationKey, data);
       };
     }
 
+    updateMutationProxies() {
+      mutationKeys.forEach((mutationKey) => {
+        this.mutationStateProxies[mutationKey].state = this.state[mutationKey];
+      });
+    }
+
     render() {
-      const { props, state, composedMutations } = this;
-      return (<Component {...props} {...state} mutations={composedMutations}/>);
+      const { props, composedMutations } = this;
+
+      this.updateMutationProxies();
+      return (<Component {...props} {...this.mutationStateProxies} mutations={composedMutations}/>);
     }
   };
 };
