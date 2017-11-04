@@ -122,7 +122,7 @@ export default rebind(mutations)(MyComponent);
 
 ### Rebind
 ```javascript
-rebind(mutations: mutationsConfiguration)(component: Component): Component`
+rebind(mutations: mutationsConfiguration)(component: Component): Component
 ```
 Binds mutations with a component. Composed component will recieve a [state proxy](#stateProxy) as a prop for each mutation specified in the [mutations configuration](#mutationsConfiguration).
 
@@ -144,7 +144,7 @@ Mutations configuration object contains a property for each mutation binding. Pr
 ```javascript
 commitMutation(environment, config, dispatch)
 ```
-Commits a mutation and dispatches resolved data to a binded component. This function is almost identical to the Relays `commitMutation` except that it expectes a `dispatch` function in the third argument.
+Commits a mutation and dispatches resolved data to a binded component. This function is almost identical to the Relays `commitMutation` except that it expectes a `dispatch` function as a third argument.
 
 ## State proxy
 ```javascript
@@ -154,6 +154,7 @@ StateProxy {
   resetState()
 }
 ```
+A state proxy is used to read & update mutation state. State proxy is passed down 
 * **state**: mutation state
 * **setState()**: sets mutation state
 * **resetState()**: sets mutation state to the initialState
