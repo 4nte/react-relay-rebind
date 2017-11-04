@@ -124,7 +124,7 @@ export default rebind(mutations)(MyComponent);
 ```javascript
 rebind(mutations: mutationsConfiguration)(component: Component): Component
 ```
-Binds mutations with a component. Composed component will recieve a [state proxy](#stateProxy) as a prop for each mutation specified in the [mutations configuration](#mutationsConfiguration).
+Binds mutations with a component. Composed component will recieve a [state proxy](#state-proxy) as a prop for each mutation specified in the [mutations configuration](#mutations-configuration).
 
 ## Mutations configuration
 ```javascript
@@ -137,7 +137,7 @@ Binds mutations with a component. Composed component will recieve a [state proxy
 ```
 Mutations configuration object contains a property for each mutation binding. Property name be the same as the graphql's mutation name.
 * **mutationName**: A graphql mutation name.
-* **mutation function**: A function called by the [mutation handler](#mutation-handler) in a component. Mutation function will be provided with a [dispatch function](dispatch) as the last argument. Mutation function could be a [commitMutation](commit-mutation) or a function that calls `commitMutation` but then you must provide a `dispatch` to the `commitMutation` as the last argument.
+* <a name="mutation-function"></a> **mutation function**: A function called by the [mutation handler](#mutation-handler) in a component. Mutation function will be provided with a [dispatch function](#dispatch) as the last argument. Mutation function could be a [commitMutation](#commit-mutation) or a function that calls `commitMutation` but then you must provide a `dispatch` to the `commitMutation` as the last argument.
 * **initialState**: default mutation state.
 
 ## Commit mutation
@@ -154,11 +154,23 @@ StateProxy {
   resetState()
 }
 ```
-A state proxy is used to read & update mutation state. State proxy is passed down 
-* **state**: mutation state
+A state proxy is used to read & update a mutation state.
+* <a name="mutation-state"></a> **state**: mutation state
 * **setState()**: sets mutation state
 * **resetState()**: sets mutation state to the initialState
 
+## Mutation handlers
+```javascript
+props.mutations.mutationName
+```
+A binded component will recieve `mutations` prop which contains a mutation handler for each binded mutation.
+Mutation handler is used to call the [mutation](mutation-function) defined in the [mutation configuration](#mutation-configuration)
+
+## dispatch
+```javascript
+dispatch(state)
+```
+A function that updates a mutation state and causes the component to recieve new [mutation state](#mutation-state)
 
 ## Contributing
 Contributions are welcomed! It's suggested to create an issue beforehand to shed some light to others on what kind of change you are working on.
