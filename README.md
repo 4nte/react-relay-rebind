@@ -126,7 +126,7 @@ rebind(mutations: mutationsConfiguration)(component: Component): Component
 ```
 Binds mutations with a component. Composed component will recieve a [state proxy](#state-proxy) as a prop for each mutation specified in the [mutations configuration](#mutations-configuration).
 
-## Mutations configuration
+### Mutations configuration
 ```javascript
     {
       mutationName : {
@@ -137,16 +137,16 @@ Binds mutations with a component. Composed component will recieve a [state proxy
 ```
 Mutations configuration object contains a property for each mutation binding. Property name be the same as the graphql's mutation name.
 * **mutationName**: A graphql mutation name.
-* <a name="mutation-function"></a> **mutation function**: A function called by the [mutation handler](#mutation-handler) in a component. Mutation function will be provided with a [dispatch function](#dispatch) as the last argument. Mutation function could be a [commitMutation](#commit-mutation) or a function that calls `commitMutation` but then you must provide a `dispatch` to the `commitMutation` as the last argument.
+* <a name="mutation-function"></a> **mutation function**: A function called by the [mutation handler](#mutation-handlers) in a component. Mutation function will be provided with a [dispatch function](#dispatch) as the last argument. Mutation function could be a [commitMutation](#commit-mutation) or a function that calls `commitMutation` but then you must provide a `dispatch` to the `commitMutation` as the last argument.
 * **initialState**: default mutation state.
 
-## Commit mutation
+### Commit mutation
 ```javascript
 commitMutation(environment, config, dispatch)
 ```
-Commits a mutation and dispatches resolved data to a binded component. This function is almost identical to the Relays `commitMutation` except that it expectes a `dispatch` function as a third argument.
+Commits a mutation and dispatches resolved data to a binded component. This function is almost identical to the Relays `commitMutation` except that it expectes a [dispatch](#dispatch) function as a third argument.
 
-## State proxy
+### State proxy
 ```javascript
 StateProxy {
   state,
@@ -159,14 +159,14 @@ A state proxy is used to read & update a mutation state.
 * **setState()**: sets mutation state
 * **resetState()**: sets mutation state to the initialState
 
-## Mutation handlers
+### Mutation handlers
 ```javascript
 props.mutations.mutationName
 ```
 A binded component will recieve `mutations` prop which contains a mutation handler for each binded mutation.
-Mutation handler is used to call the [mutation](mutation-function) defined in the [mutation configuration](#mutation-configuration)
+Mutation handler is used to call the [mutation](#mutation-function) defined in the [mutation configuration](#mutation-configuration)
 
-## dispatch
+### dispatch
 ```javascript
 dispatch(state)
 ```
